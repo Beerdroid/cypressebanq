@@ -1,0 +1,19 @@
+{
+    "apiBaseUrl": "https://petstore.swagger.io/v2",
+    "baseUrl": "https://ebanq.com/",
+    "ignoreTestFiles": "**/examples/**",
+    "viewportWidth": 1920,
+    "viewportHeight": 1080,
+    "experimentalStudio": true,
+    "reporter": "cypress-multi-reporters",
+    "reporterOptions": {
+        "reporterEnabled": "mochawesome",
+        "mochawesomeReporterOptions": {
+            "reportDir": "cypress/reports/mocha",
+            "quiet": true,
+            "overwrite": false,
+            "html": false,
+            "json": true
+        }
+    }
+}
