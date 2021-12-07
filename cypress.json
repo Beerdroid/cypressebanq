@@ -1,11 +1,21 @@
 {
-    "apiBaseUrl": "https://petstore.swagger.io/v2",
-    "baseUrl": "https://ebanq.com/",
+    "env": {
+        "apiBaseUrl": "https://api-demo.ebanq.com",
+        "userName": "Demo-User",
+        "password": "Demo-Access1",
+        "adminName": "Bank-Admin"
+    },
+    "baseUrl": "https://demo.ebanq.com",
     "ignoreTestFiles": "**/examples/**",
     "viewportWidth": 1920,
     "viewportHeight": 1080,
     "experimentalStudio": true,
+    "videoUploadOnPasses": false,
     "reporter": "cypress-multi-reporters",
+    "retries": {
+        "runMode": 2,
+        "openMode": 0
+    },
     "reporterOptions": {
         "reporterEnabled": "mochawesome",
         "mochawesomeReporterOptions": {

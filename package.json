@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "demo",
   "main": "index.js",
+  "types": "src",
   "scripts": {
     "clean:reports": "rm -R -f cypress/reports && npx mkdirp cypress/reports && npx mkdirp cypress/reports/mochareports",
     "pretest": "npm run clean:reports",

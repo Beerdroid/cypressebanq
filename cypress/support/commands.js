@@ -23,3 +23,37 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+import LoginPage from "../page_objects/LoginPage"
+
+Cypress.Commands.add('login', (user, password) => {
+    const loginPage = new LoginPage()
+    cy.visit('/')
+    loginPage.getUsernameInput().clear().type(user)
+    loginPage.getPasswordInput().clear().type(password)
+    loginPage.getSubmitButton().click()
+    cy.location('pathname', {timeout: 10000}).should('include', '/my-accounts');
+})
+
+Cypress.Commands.add('signin', (email, password) => {
+    const baseUrl = Cypress.env('apiBaseUrl')
+    const signinPath = '/users/public/v1/auth/signin'
+
+    cy.request({
+        method: 'POST',
+        url: baseUrl + signinPath,
+        body: {
+            data: {
+                email,
+                password
+            }
+        }
+    })
+        .as('signinResponse')
+        .then((response) => {
+            Cypress.env('token', response.body.accessToken) // either this or some global var but remember that this will only work in one test case
+            return response
+        })
+        .its('status')
+        .should('eq', 200)
+})
