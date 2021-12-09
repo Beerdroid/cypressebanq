@@ -39,7 +39,7 @@ Cypress.Commands.add('signin', (email, password) => {
     const baseUrl = Cypress.env('apiBaseUrl')
     const signinPath = '/users/public/v1/auth/signin'
 
-    cy.request({
+    cy.api({
         method: 'POST',
         url: baseUrl + signinPath,
         body: {

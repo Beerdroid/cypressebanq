@@ -2,7 +2,7 @@
 import "cypress-real-events/support";
 import TransfersPage from "../../page_objects/TransfersPage";
 
-describe('Transfers scope', () => {
+describe('Transfers scope <regression>', () => {
     const transfersPage = new TransfersPage()
     const transeferIdregex = '(?<=(ID\s#))\d+'
 

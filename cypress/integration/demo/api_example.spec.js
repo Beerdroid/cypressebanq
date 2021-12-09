@@ -2,7 +2,7 @@
 /// <reference types='cypress' />
 //TBD - DEFINE COVERED TOPICS
 
-describe('API example', () => {
+describe('API example <smoke>', () => {
     const baseUrl = Cypress.env('apiBaseUrl')
     const getCardsPath = '/accounts/private/v1/own-cards'
 
@@ -20,7 +20,7 @@ describe('API example', () => {
 
     it('gets user cards', () => {
         cy.get('@accessToken').then((accessToken) => {
-            cy.request({
+            cy.api({
                 method: 'GET',
                 url: baseUrl + getCardsPath,
                 headers: {

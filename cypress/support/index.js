@@ -15,8 +15,22 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import '@bahmutov/cy-api/support'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-
+//Filters specs suites by keywords in a suite title. <your_keyword> value should be added to a suite title
+//The following command structure is used to filter test: npx cypress run --env SUITE=your_keyword
+beforeEach(function() {
+    let testSuite = Cypress.env('SUITE');
+    if (!testSuite) {
+      return;
+    }
+    
+    const testName = Cypress.mocha.getRunner().test.fullTitle();
+    testSuite = "<"+testSuite+">"
+    if (!testName.includes(testSuite)) {
+      this.skip();
+    }
+  })
