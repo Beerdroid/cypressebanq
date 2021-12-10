@@ -8,7 +8,7 @@ describe('Transfers scope <regression>', () => {
 
     beforeEach(() => {
         const username = Cypress.env('userName')
-        const password = Cypress.env('password')
+        const password = Cypress.env('user_pass')
         
         cy.login(username, password)       
     })
