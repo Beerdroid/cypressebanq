@@ -18,17 +18,18 @@
   "devDependencies": {
     "@4tw/cypress-drag-drop": "^2.1.0",
     "@bahmutov/cy-api": "^1.6.2",
+    "cy2": "^1.3.0",
     "cypress": "^9.1.1",
     "cypress-file-upload": "^5.0.8",
     "cypress-multi-reporters": "^1.5.0",
     "cypress-real-events": "^1.6.0",
+    "cypress-terminal-report": "^3.4.0",
     "eslint": "^8.4.1",
     "eslint-plugin-cypress": "^2.12.1",
     "mkdirp": "^1.0.4",
     "mocha": "^9.1.3",
     "mochawesome": "^7.0.1",
     "mochawesome-merge": "^4.2.1",
-    "mochawesome-report-generator": "^6.0.1",
-    "cy2": "^1.3.0"
+    "mochawesome-report-generator": "^6.0.1"
   }
 }
