@@ -4,11 +4,10 @@ import TransfersPage from "../../page_objects/TransfersPage";
 
 describe('Transfers scope <regression>', () => {
     const transfersPage = new TransfersPage()
-    const transeferIdregex = '(?<=(ID\s#))\d+'
 
     beforeEach(() => {
         const username = Cypress.env('userName')
-        const password = Cypress.env('user_pass')
+        const password = Cypress.env('password')
         
         cy.login(username, password)       
     })
@@ -23,6 +22,6 @@ describe('Transfers scope <regression>', () => {
         transfersPage.getDescriptionTextArea().type('Transfer test text')
         transfersPage.getSubmitButton().click()
         transfersPage.getSubmitButton().click()
-        transfersPage.getPopUpMessage().contains('Your request has been sent for approval. Request ID #')
+        transfersPage.getPopUpMessage().contains('Yourt request has been sent for approval. Request ID #')
     })
 })

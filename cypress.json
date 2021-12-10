@@ -1,8 +1,8 @@
-{
+{   "projectId": "d5g4Dz",
     "env": {
         "apiBaseUrl": "https://api-demo.ebanq.com",
         "userName": "Demo-User",
-        "password": "",
+        "password": "Demo-Access1",
         "adminName": "Bank-Admin"
     },
     "baseUrl": "https://demo.ebanq.com",

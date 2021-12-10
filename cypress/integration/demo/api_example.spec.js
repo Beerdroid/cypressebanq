@@ -8,7 +8,7 @@ describe('API example <smoke>', () => {
 
     beforeEach('get accessToken via API', () => {
         const username = Cypress.env('userName')
-        const password = Cypress.env('user_pass')
+        const password = Cypress.env('password')
         cy.signin(username, password)
         cy.get('@signinResponse').then(response => {
             cy.wrap(response.body.data.accessToken).as('accessToken')
@@ -29,7 +29,7 @@ describe('API example <smoke>', () => {
             }).then(response => {
                 expect(response.status).to.eq(200)
                 cy.log(JSON.stringify(response.body))
-                expect(response.body.data[0].userId).to.eql('d5983e72-0a79-4076-9bf9-4eec2dac73f1')
+                expect(response.body.data[0].userId).to.eql('d5983e72-0a79-4076-9bf9-4eec2dac73f')
             })
         })
     })
