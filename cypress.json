@@ -2,7 +2,7 @@
     "env": {
         "apiBaseUrl": "https://api-demo.ebanq.com",
         "userName": "Demo-User",
-        "password": "Demo-Access1",
+        "password": "",
         "adminName": "Bank-Admin"
     },
     "baseUrl": "https://demo.ebanq.com",
