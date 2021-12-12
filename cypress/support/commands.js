@@ -49,6 +49,7 @@ Cypress.Commands.add('signIn', (email, password) => {
             }
         }
     })
+        .as('signInResponse')
         .then((response) => {
             Cypress.env('token', response.body.accessToken) // either this or some global var but remember that this will only work in one test case
             return response
