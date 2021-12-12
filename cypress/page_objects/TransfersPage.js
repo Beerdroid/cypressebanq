@@ -1,33 +1,33 @@
 export default class TransfersPage {
-    getTransferBetweenAccountsLink() {
+    static getTransferBetweenAccountsLink() {
         return cy.get('[ng-reflect-router-link="transfer-between-accounts"]')
     }
 
-    getDebitFromDropDown(){
+    static getDebitFromDropDown(){
         return cy.get('[formcontrolname="accountFrom"] ng-select')
-    }    
-    
-    getCreditToDropDown(){
+    }
+
+    static getCreditToDropDown(){
         return cy.get('[formcontrolname="accountTo"] ng-select')
     }
 
-    getAmountToTransferInput(){
+    static getAmountToTransferInput(){
         return cy.get('[formcontrolname="outgoingAmount"]')
-    }    
-    
-    getDescriptionTextArea(){
+    }
+
+    static getDescriptionTextArea(){
         return cy.get('#description')
-    }    
-    
-    getSubmitButton(){
+    }
+
+    static getSubmitButton(){
         return cy.get('[type="submit"]')
-    }   
-    
-    getPopUpMessage(){
+    }
+
+    static getPopUpMessage(){
         return cy.get('div.popup-message')
-    }   
-    
-    getDropDownOption(){
+    }
+
+    static getDropDownOption(){
         return cy.get('[role="option"]')
     }
 }

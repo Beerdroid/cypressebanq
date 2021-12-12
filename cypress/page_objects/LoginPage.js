@@ -1,13 +1,13 @@
 export default class LoginPage {
-    getUsernameInput() {
+    static getUsernameInput() {
         return cy.get('[type="email"]')
     }
 
-    getPasswordInput() {
+    static getPasswordInput() {
         return cy.get('[type="password"]')
-    }   
-    
-    getSubmitButton() {
+    }
+
+    static getSubmitButton() {
         return cy.get('[type="submit"]')
     }
 }

@@ -27,11 +27,10 @@
 import LoginPage from "../page_objects/LoginPage"
 
 Cypress.Commands.add('login', (user, password) => {
-    const loginPage = new LoginPage()
     cy.visit('/')
-    loginPage.getUsernameInput().clear().type(user)
-    loginPage.getPasswordInput().clear().type(password)
-    loginPage.getSubmitButton().click()
+    LoginPage.getUsernameInput().clear().type(user)
+    LoginPage.getPasswordInput().clear().type(password)
+    LoginPage.getSubmitButton().click()
     cy.location('pathname', {timeout: 10000}).should('include', '/my-accounts');
 })
 
