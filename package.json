@@ -10,7 +10,7 @@
     "allure:clear": "rm -R -f allure-results && npx mkdirp allure-results && rm -R -f allure-report && npx mkdirp allure-report",
     "clean:reports": "rm -R -f cypress/reports && npx mkdirp cypress/reports && npx mkdirp cypress/reports/mochareports",
     "pretest": "npm run clean:reports && npm run allure:clear",
-    "scripts": "cypress run",
+    "scripts": "cypress run --env allure=true",
     "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
     "generate-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports",
     "posttest": "npm run combine-reports && npm run generate-report && npm run allure:report",
