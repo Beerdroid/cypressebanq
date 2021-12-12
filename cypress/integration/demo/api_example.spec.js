@@ -9,7 +9,7 @@ describe('API example <smoke>', () => {
     beforeEach('get accessToken via API', () => {
         const username = Cypress.env('userName')
         const password = Cypress.env('password')
-        cy.signin(username, password)
+        cy.signIn(username, password)
         cy.get('@signinResponse').then(response => {
             cy.wrap(response.body.data.accessToken).as('accessToken')
             cy.get('@accessToken').then(token => {
