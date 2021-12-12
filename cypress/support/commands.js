@@ -35,13 +35,13 @@ Cypress.Commands.add('login', (user, password) => {
     cy.location('pathname', {timeout: 10000}).should('include', '/my-accounts');
 })
 
-Cypress.Commands.add('signin', (email, password) => {
+Cypress.Commands.add('signIn', (email, password) => {
     const baseUrl = Cypress.env('apiBaseUrl')
-    const signinPath = '/users/public/v1/auth/signin'
+    const signInPath = '/users/public/v1/auth/signin'
 
     cy.api({
         method: 'POST',
-        url: baseUrl + signinPath,
+        url: baseUrl + signInPath,
         body: {
             data: {
                 email,
@@ -49,7 +49,6 @@ Cypress.Commands.add('signin', (email, password) => {
             }
         }
     })
-        .as('signinResponse')
         .then((response) => {
             Cypress.env('token', response.body.accessToken) // either this or some global var but remember that this will only work in one test case
             return response
