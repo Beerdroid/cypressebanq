@@ -1,0 +1,56 @@
+pipeline {
+    agent any
+
+    options {
+        ansiColor('xterm')
+    }
+
+    stages {
+        stage('Fetch') {
+            steps {
+                git branch: 'develop', credentialsId: '74337f09-e75a-42df-82b1-de18d3264123', url: 'https://github.com/Beerdroid/cypressebanq.git'
+            }
+        }
+        stage('Dependencies') {
+            steps {
+                nodejs(nodeJSInstallationName: 'nodeJS') {
+                    sh 'npm install'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                nodejs(nodeJSInstallationName: 'nodeJS') {
+                    sh 'npx browserslist@latest --update-db'
+                    sh 'npm run test || true'
+                }
+            }
+        }
+  }
+    post {
+        always {
+            nodejs(nodeJSInstallationName: 'nodeJS') {
+                sh 'npm run posttest'
+            }
+
+       script {
+                allure([
+                    includeProperties: false,
+                    jdk: '',
+                    properties: [],
+                    reportBuildPolicy: 'ALWAYS',
+                    results: [[path: 'allure-results']]
+                ])
+
+       }
+        publishHTML (target: [
+                allowMissing: false,
+                alwaysLinkToLastBuild: false,
+                keepAll: true,
+                reportDir: 'cypress/reports/mochareports',
+                reportFiles: 'report.html',
+                reportName: "Cypress report"
+            ])
+         }
+    }
+}
