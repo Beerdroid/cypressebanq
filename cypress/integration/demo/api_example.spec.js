@@ -29,7 +29,7 @@ describe('API example <smoke>', () => {
             }).then(response => {
                 expect(response.status).to.eq(200)
                 cy.log(JSON.stringify(response.body))
-                expect(response.body.data[0].userId).to.eql('d5983e72-0a79-4076-9bf9-4eec2dac73f')
+                expect(response.body.data[0].userId).to.eql('d5983e72-0a79-4076-9bf9-4eec2dac73f1')
             })
         })
     })

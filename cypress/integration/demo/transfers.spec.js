@@ -22,6 +22,6 @@ describe('Transfers scope <regression>', () => {
         transfersPage.getDescriptionTextArea().type('Transfer test text')
         transfersPage.getSubmitButton().click()
         transfersPage.getSubmitButton().click()
-        transfersPage.getPopUpMessage().contains('Yourt request has been sent for approval. Request ID #')
+        transfersPage.getPopUpMessage().contains('Your request has been sent for approval. Request ID #')
     })
 })

@@ -17,6 +17,7 @@
 import './commands'
 import '@bahmutov/cy-api/support'
 require('cypress-terminal-report/src/installLogsCollector')();
+import '@shelex/cypress-allure-plugin';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
