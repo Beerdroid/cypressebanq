@@ -26,6 +26,7 @@
     "cy2": "^1.3.0",
     "cypress": "^9.1.1",
     "cypress-file-upload": "^5.0.8",
+    "cypress-localstorage-commands": "^1.6.1",
     "cypress-multi-reporters": "^1.5.0",
     "cypress-real-events": "^1.6.0",
     "cypress-terminal-report": "^3.4.0",

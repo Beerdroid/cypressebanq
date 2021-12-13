@@ -3,6 +3,7 @@ pipeline {
 
     options {
         ansiColor('xterm')
+        timestamps()
     }
 
     stages {
@@ -13,27 +14,22 @@ pipeline {
         }
         stage('Dependencies') {
             steps {
-                nodejs(nodeJSInstallationName: 'nodeJS') {
                     sh 'npm install'
-                }
             }
         }
         stage('Test') {
             steps {
-                nodejs(nodeJSInstallationName: 'nodeJS') {
-                    sh 'npx browserslist@latest --update-db'
-                    sh 'npm run test || true'
-                }
+                   sh 'npx browserslist@latest --update-db'
+                   sh 'npm run test || true'
             }
         }
   }
     post {
         always {
-            nodejs(nodeJSInstallationName: 'nodeJS') {
-                sh 'npm run posttest'
-            }
 
-       script {
+        sh 'npm run posttest'
+
+        script {
                 allure([
                     includeProperties: false,
                     jdk: '',
@@ -41,8 +37,7 @@ pipeline {
                     reportBuildPolicy: 'ALWAYS',
                     results: [[path: 'allure-results']]
                 ])
-
-       }
+        }
         publishHTML (target: [
                 allowMissing: false,
                 alwaysLinkToLastBuild: false,
@@ -51,6 +46,7 @@ pipeline {
                 reportFiles: 'report.html',
                 reportName: "Cypress report"
             ])
-         }
+        }
     }
+
 }

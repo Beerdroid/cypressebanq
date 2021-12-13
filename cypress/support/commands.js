@@ -24,19 +24,11 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-import LoginPage from "../page_objects/LoginPage"
-
-Cypress.Commands.add('login', (user, password) => {
-    cy.visit('/')
-    LoginPage.getUsernameInput().clear().type(user)
-    LoginPage.getPasswordInput().clear().type(password)
-    LoginPage.getSubmitButton().click()
-    cy.location('pathname', {timeout: 10000}).should('include', '/my-accounts');
-})
+import "cypress-localstorage-commands"
 
 Cypress.Commands.add('signIn', (email, password) => {
     const baseUrl = Cypress.env('apiBaseUrl')
-    const signInPath = '/users/public/v1/auth/signin'
+    const signInPath = Cypress.env('signInPath')
 
     cy.api({
         method: 'POST',
@@ -49,10 +41,8 @@ Cypress.Commands.add('signIn', (email, password) => {
         }
     })
         .as('signInResponse')
-        .then((response) => {
-            Cypress.env('token', response.body.accessToken) // either this or some global var but remember that this will only work in one test case
-            return response
+        .its('body')
+        .then(body => {
+            cy.setLocalStorage('ebanq-auth', JSON.stringify(body.data))
         })
-        .its('status')
-        .should('eq', 200)
 })

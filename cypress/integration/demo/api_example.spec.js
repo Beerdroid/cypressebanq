@@ -1,7 +1,4 @@
 
-/// <reference types='cypress' />
-//TBD - DEFINE COVERED TOPICS
-
 describe('API example <smoke>', () => {
     const baseUrl = Cypress.env('apiBaseUrl')
     const getCardsPath = '/accounts/private/v1/own-cards'

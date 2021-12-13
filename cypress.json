@@ -3,7 +3,8 @@
         "apiBaseUrl": "https://api-demo.ebanq.com",
         "userName": "Demo-User",
         "password": "Demo-Access1",
-        "adminName": "Bank-Admin"
+        "adminName": "Bank-Admin",
+        "signInPath": "/users/public/v1/auth/signin"
     },
     "baseUrl": "https://demo.ebanq.com",
     "ignoreTestFiles": "**/examples/**",

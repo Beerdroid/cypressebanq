@@ -1,14 +1,12 @@
-/// <reference types='cypress' />
 import "cypress-real-events/support";
 import TransfersPage from "../../page_objects/TransfersPage";
 
 describe('Transfers scope <regression>', () => {
+    const username = Cypress.env('userName')
+    const password = Cypress.env('password')
 
     beforeEach(() => {
-        const username = Cypress.env('userName')
-        const password = Cypress.env('password')
-        
-        cy.login(username, password)       
+        cy.signIn(username, password)
     })
 
     it('sends transfer between accounts', () => {
