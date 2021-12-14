@@ -9,6 +9,7 @@ pipeline {
     stages {
         stage('Fetch') {
             steps {
+                cleanWs()
                 git branch: 'develop', credentialsId: '74337f09-e75a-42df-82b1-de18d3264123', url: 'https://github.com/Beerdroid/cypressebanq.git'
             }
         }
