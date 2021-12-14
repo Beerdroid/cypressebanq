@@ -1,28 +1,54 @@
-stage ('Cypress parallel'){
+stages ('Cypress parallel'){
     parallel {
         stage('Cypress 1') {
             agent {
                 node {
-                    label 'agent-1'
+                    label 'master'
                 }
             }
             steps {
+                git branch: 'develop', credentialsId: '74337f09-e75a-42df-82b1-de18d3264123', url: 'https://github.com/Beerdroid/cypressebanq.git'
                 sh 'npm install --silent'
-                sh 'npm start & npx wait-on http://localhost:3000'
-                sh "CYPRESS_API_URL=\"http://Sorry-Cypress-Instance-IP:1234/\" npx cy2 run --record --key XXX --parallel --ci-build-id env.BUILD_ID"
+                sh 'npx browserslist@latest --update-db'
+                sh "CYPRESS_API_URL=\"http://34.118.89.56:1234/\" npx cy2 run --record --key XXX --parallel --ci-build-id env.BUILD_ID"
             }
         }
         stage('Cypress 2') {
             agent {
                 node {
-                    label 'agent-2'
+                    label 'node-1'
                 }
             }
             steps {
+                git branch: 'develop', credentialsId: '74337f09-e75a-42df-82b1-de18d3264123', url: 'https://github.com/Beerdroid/cypressebanq.git'
                 sh 'npm install --silent'
-                sh 'npm start & npx wait-on http://localhost:3000'
-                sh "CYPRESS_API_URL=\"http://Sorry-Cypress-Instance-IP:1234/\" npx cy2 run --record --key XXX --parallel --ci-build-id env.BUILD_ID"
+                sh 'npx browserslist@latest --update-db'
+                sh "CYPRESS_API_URL=\"http://34.118.94.104:1234/\" npx cy2 run --record --key XXX --parallel --ci-build-id env.BUILD_ID"
             }
         }
     }
+        post {
+            always {
+
+            sh 'npm run posttest'
+
+            script {
+                    allure([
+                        includeProperties: false,
+                        jdk: '',
+                        properties: [],
+                        reportBuildPolicy: 'ALWAYS',
+                        results: [[path: 'allure-results']]
+                    ])
+            }
+            publishHTML (target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: 'cypress/reports/mochareports',
+                    reportFiles: 'report.html',
+                    reportName: "Cypress report"
+                ])
+            }
+        }
 }
