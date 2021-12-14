@@ -15,6 +15,7 @@ pipeline {
         stage('Dependencies') {
             steps {
                     sh 'npm install'
+                    sh 'npm run clean'
             }
         }
         stage('Test') {
@@ -27,7 +28,7 @@ pipeline {
     post {
         always {
 
-        sh 'npm run posttest'
+        sh 'npm run post'
 
         script {
                 allure([
