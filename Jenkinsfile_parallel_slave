@@ -1,0 +1,71 @@
+pipeline {
+            agent {
+                node {
+                    label 'master'
+                }
+            }
+
+    options {
+        ansiColor('xterm')
+        timestamps()
+    }
+
+stages{
+    stage ('Cypress parallel'){
+        parallel {
+        stage('Cypress 1') {
+            agent {
+                node {
+                    label 'master'
+                }
+            }
+            steps {
+                git branch: 'dev', credentialsId: '74337f09-e75a-42df-82b1-de18d3264123', url: 'https://github.com/Beerdroid/cypressebanq.git'
+                sh 'npm install'
+                sh 'npm run clean'
+                sh 'npm run test:parallel:local || true'
+            }
+        }
+        stage('Cypress 2') {
+            agent {
+                node {
+                    label 'slave-1'
+                }
+            }
+
+            steps {
+                git branch: 'dev', credentialsId: '74337f09-e75a-42df-82b1-de18d3264123', url: 'https://github.com/Beerdroid/cypressebanq.git'
+                sh 'npm install'
+                sh 'npm run clean'
+                sh 'npm run test:parallel || true'
+            }
+        }
+    }
+
+}
+}
+post {
+        always {
+
+        sh 'npm run post'
+
+        script {
+                allure([
+                    includeProperties: false,
+                    jdk: '',
+                    properties: [],
+                    reportBuildPolicy: 'ALWAYS',
+                    results: [[path: 'allure-results']]
+                ])
+        }
+        publishHTML (target: [
+                allowMissing: false,
+                alwaysLinkToLastBuild: false,
+                keepAll: true,
+                reportDir: 'cypress/reports/mochareports',
+                reportFiles: 'report.html',
+                reportName: "Cypress report"
+            ])
+        }
+    }
+}
