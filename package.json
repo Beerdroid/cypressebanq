@@ -11,11 +11,13 @@
     "clean": "npm run clean:reports && npm run allure:clear",
     "scripts:single": "cypress run --env allure=true",
     "scripts:parallel": "CYPRESS_API_URL=\"http://34.118.125.230:1234/\" npx cy2 run --parallel --record --key somekey --ci-build-id hello-cypress --env allure=true",
+    "scripts:parallel:local": "CYPRESS_API_URL=\"http://localhost:1234/\" npx cy2 run --parallel --record --key somekey --ci-build-id hello-cypress --env allure=true",
     "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
     "generate-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports",
     "post": "npm run combine-reports && npm run generate-report && npm run allure:report",
     "test": "npm run scripts:single",
-    "test:parallel": "npm run scripts:parallel"
+    "test:parallel": "npm run scripts:parallel",
+    "test:parallel:local": "npm run scripts:parallel:local"
   },
   "author": "Dzauchynnikau",
   "license": "ISC",
