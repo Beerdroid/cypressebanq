@@ -109,7 +109,7 @@ describe('example to-do app', () => {
     })
 
     it('can filter for completed tasks', () => {
-      // We can perform similar steps as the test above to ensure
+      // We can perform similar transfer as the test above to ensure
       // that only completed tasks are shown
       cy.contains('Completed').click()
 

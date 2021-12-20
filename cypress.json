@@ -12,6 +12,7 @@
     "viewportHeight": 1080,
     "experimentalStudio": true,
     "videoUploadOnPasses": false,
+    "testFiles": ["**/*.feature", "**/*.spec.js"],
     "reporter": "cypress-multi-reporters",
     "retries": {
         "runMode": 2,

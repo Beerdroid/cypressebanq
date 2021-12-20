@@ -25,6 +25,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import "cypress-localstorage-commands"
+import LoginPage from "../page_objects/LoginPage";
 
 Cypress.Commands.add('signIn', (email, password) => {
     const baseUrl = Cypress.env('apiBaseUrl')
@@ -45,4 +46,11 @@ Cypress.Commands.add('signIn', (email, password) => {
         .then(body => {
             cy.setLocalStorage('ebanq-auth', JSON.stringify(body.data))
         })
+})
+
+Cypress.Commands.add('login', (username, password) => {
+    LoginPage.getUsernameInput().clear().type(username)
+    LoginPage.getPasswordInput().clear().type(password)
+    LoginPage.getSubmitButton().click()
+    cy.url().should('include', '/my-accounts');
 })

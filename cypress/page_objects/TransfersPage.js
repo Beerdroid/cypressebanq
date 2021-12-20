@@ -30,4 +30,5 @@ export default class TransfersPage {
     static getDropDownOption(){
         return cy.get('[role="option"]')
     }
+
 }

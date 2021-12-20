@@ -15,7 +15,7 @@ describe('Transfers scope <regression>', () => {
         TransfersPage.getDropDownOption().contains('EBQ11113487654').click()
         TransfersPage.getCreditToDropDown().click()
         TransfersPage.getDropDownOption().contains('EBQ11223487456').click()
-        TransfersPage.getAmountToTransferInput().type('11').debug()
+        TransfersPage.getAmountToTransferInput().type('11')
         TransfersPage.getDescriptionTextArea().type('Transfer test text')
         TransfersPage.getSubmitButton().click()
         TransfersPage.getSubmitButton().click()
