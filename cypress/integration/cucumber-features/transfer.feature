@@ -1,9 +1,9 @@
-Feature: Transfer between accounts
+Feature: Transfer between accounts cucumber
 
   Background:
     Given user is logged in
 
-  Scenario:
+  Scenario: a user can perform transfer between accounts
 
     Given transfer between accounts page is loaded
     When user selects a debit account
