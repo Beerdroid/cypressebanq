@@ -13,12 +13,14 @@
 // the project's config changing)
 const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 const terminalReport = require('cypress-terminal-report/src/installLogsPrinter');
+const cucumber = require('cypress-cucumber-preprocessor').default
 /**
  * @type {Cypress.PluginConfig}
  */
 // eslint-disable-next-line no-unused-vars
 module.exports = (on, config) => {
     terminalReport(on)
+    on('file:preprocessor', cucumber())
     allureWriter(on, config);
     return config;
 };
