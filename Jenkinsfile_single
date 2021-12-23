@@ -43,9 +43,9 @@ pipeline {
                 allowMissing: false,
                 alwaysLinkToLastBuild: false,
                 keepAll: true,
-                reportDir: 'cypress/reports/mochareports',
-                reportFiles: 'report.html',
-                reportName: "Cypress report"
+                reportDir: 'cypress/reports/cucumber_reports',
+                reportFiles: 'index.html',
+                reportName: "Cucumber report"
             ])
         }
     }
