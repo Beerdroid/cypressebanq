@@ -1,6 +1,5 @@
-import {Given, When, Then} from 'cypress-cucumber-preprocessor/steps'
+import {Given, Then, When} from 'cypress-cucumber-preprocessor/steps'
 import LoginPage from "../../page_objects/LoginPage";
-import TransfersPage from "../../page_objects/TransfersPage";
 
 Given("login page is opened", () => {
     cy.visit('/')
@@ -16,4 +15,7 @@ When("user submits credentials", () => {
 });
 Then("my accounts page is opened", () => {
     cy.url().should('include', '/my-accounts');
+});
+Then("the error is displayed", () => {
+    cy.contains("Wrong username or password.").should('be.visible')
 });

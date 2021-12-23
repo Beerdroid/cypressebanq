@@ -1,4 +1,4 @@
-Feature: Transfer between accounts cucumber
+Feature: Transfer between accounts cucumber - Cucumber
 
   Background:
     Given user is logged in
