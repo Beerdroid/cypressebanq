@@ -10,6 +10,6 @@ describe('News tests', () => {
         cy.visit('/')
         cy.intercept('**/article*', {fixture: 'news_stub.json'})
         cy.get('[routerlink="/user-news"]').click()
-        cy.get('.table-content div.news-title').contains('Hello world! This title is STUBBED!').should('be.visible')
+        cy.get('.table-content div.news-title').should('contain.text', 'Hello world! This title is STUBBED!')
     })
 })

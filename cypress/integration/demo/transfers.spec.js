@@ -1,5 +1,8 @@
 import "cypress-real-events/support";
 import TransfersPage from "../../page_objects/TransfersPage";
+import TransfersSteps from "../../steps/TransfersSteps";
+
+const transferTransferBetweenAccounts = 'transfer/transfer-between-accounts';
 
 describe('Transfers scope <regression>', () => {
     const username = Cypress.env('userName')
@@ -10,15 +13,8 @@ describe('Transfers scope <regression>', () => {
     })
 
     it('sends transfer between accounts', () => {
-        cy.visit('transfer/transfer-between-accounts')
-        TransfersPage.getDebitFromDropDown().realHover().click()
-        TransfersPage.getDropDownOption().contains('EBQ11113487654').click()
-        TransfersPage.getCreditToDropDown().click()
-        TransfersPage.getDropDownOption().contains('EBQ11223487456').click()
-        TransfersPage.getAmountToTransferInput().type('11')
-        TransfersPage.getDescriptionTextArea().type('Transfer test text')
-        TransfersPage.getSubmitButton().click()
-        TransfersPage.getSubmitButton().click()
-        TransfersPage.getPopUpMessage().contains('Your request has been sent for approval. Request ID #')
+        cy.visit(transferTransferBetweenAccounts)
+        TransfersSteps.fillAndSubmitForm('EBQ11113487654', 'EBQ11223487456', '11', 'Text')
+        TransfersPage.popUpMessage().should('contain.text','Your request has been sent for approval. Request ID #')
     })
 })

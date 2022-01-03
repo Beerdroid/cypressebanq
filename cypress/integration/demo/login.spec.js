@@ -9,9 +9,9 @@ describe('Login page', () => {
     })
 
     it('login successfully', () => {
-        LoginPage.getUsernameInput().clear().type(username)
-        LoginPage.getPasswordInput().clear().type(password)
-        LoginPage.getSubmitButton().click()
+        LoginPage.usernameInput().clear().type(username)
+        LoginPage.passwordInput().clear().type(password)
+        LoginPage.submitButton().click()
         cy.url().should('include', '/my-accounts');
     })
 })

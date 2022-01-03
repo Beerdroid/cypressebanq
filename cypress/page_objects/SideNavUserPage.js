@@ -1,9 +1,9 @@
 export default class SideNavUserPage {
-    static getTransfersMenu() {
+    static transfersMenu() {
         return cy.get('[routerlink*="transfer"] label')
     }
 
-    static getCardsMenu() {
+    static cardsMenu() {
         return cy.get('[routerlink*="my-cards"]')
     }
 }
