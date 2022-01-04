@@ -26,6 +26,8 @@
 
 import "cypress-localstorage-commands"
 import LoginPage from "../page_objects/LoginPage";
+import 'cypress-file-upload';
+require('cy-verify-downloads').addCustomCommand();
 
 Cypress.Commands.add('signIn', (email, password) => {
     const baseUrl = Cypress.env('apiBaseUrl')

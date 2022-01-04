@@ -1,0 +1,38 @@
+#PLUGINS
+cypress-xpath
+cypress-drag-drop
+cypress-file-upload
+cypress-downloadfile
+cypress-real-events
+cypress-wait-until
+cypress-iframe
+mochawesome reporter
+cy-api
+cypress-grep
+cypress-terminal-report
+cypress-allure
+cypress-localstorage-commands
+cypress-cucumber-preprocessor
+
+#FEATURES
+env and config variable usage
+logs
+screenshot
+video compression config
+cypress studio generated test
+hooks
+including and excluding tests
+single test configuration
+test retry: global config and suite setup
+all assertion types: should, expect, assert
+dynamic test approach
+iFrame
+aliases
+fixtures
+write/read file
+page object and business steps layers
+REST API test
+interceptor
+download/upload file
+cucumber + report integration
+programmatic login

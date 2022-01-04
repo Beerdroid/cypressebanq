@@ -10,6 +10,7 @@
     "ignoreTestFiles": "**/examples/**",
     "viewportWidth": 1920,
     "viewportHeight": 1080,
+    "downloadsFolder": "cypress/downloads",
     "experimentalStudio": true,
     "videoUploadOnPasses": false,
     "testFiles": ["**/*.feature", "**/*.spec.js"],

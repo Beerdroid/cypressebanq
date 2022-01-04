@@ -14,6 +14,7 @@
 const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 const terminalReport = require('cypress-terminal-report/src/installLogsPrinter');
 const cucumber = require('cypress-cucumber-preprocessor').default
+const { isFileExist } = require('cy-verify-downloads');
 /**
  * @type {Cypress.PluginConfig}
  */
@@ -22,5 +23,7 @@ module.exports = (on, config) => {
     terminalReport(on)
     on('file:preprocessor', cucumber())
     allureWriter(on, config);
+    require('cypress-grep/src/plugin')(config)
+    on('task', { isFileExist })
     return config;
 };

@@ -1,4 +1,4 @@
-describe('API example <smoke>', () => {
+describe('API example', () => {
     const baseUrl = Cypress.env('apiBaseUrl')
     const getCardsPath = '/accounts/private/v1/own-cards'
 

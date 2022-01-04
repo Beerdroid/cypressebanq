@@ -1,6 +1,11 @@
-import LoginPage from "../../page_objects/LoginPage";
+import LoginSteps from "../../steps/LoginSteps";
 
-describe('Login page', () => {
+/*
+Features:
+1. Browser config
+2. cypress-grep tags
+*/
+describe('Login page', { tags: "@smoke" }, () => {
     const username = Cypress.env('userName')
     const password = Cypress.env('password')
 
@@ -8,10 +13,13 @@ describe('Login page', () => {
         cy.visit('/')
     })
 
-    it('login successfully', () => {
-        LoginPage.usernameInput().clear().type(username)
-        LoginPage.passwordInput().clear().type(password)
-        LoginPage.submitButton().click()
+    it('login successfully in firefox', { browser: 'firefox' }, () => {
+        LoginSteps.login(username, password)
+        cy.url().should('include', '/my-accounts');
+    })
+
+    it('login successfully in electron', { browser: 'electron', tags: "@electron" }, () => {
+        LoginSteps.login(username, password)
         cy.url().should('include', '/my-accounts');
     })
 })
