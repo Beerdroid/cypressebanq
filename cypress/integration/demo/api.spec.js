@@ -1,3 +1,10 @@
+/*
+Features:
+1. REST API
+2. aliases
+3. write file
+4. cy.log()
+*/
 describe('API example', () => {
     const baseUrl = Cypress.env('apiBaseUrl')
     const getCardsPath = '/accounts/private/v1/own-cards'
@@ -25,6 +32,7 @@ describe('API example', () => {
             }).then(response => {
                 expect(response.status).to.eq(200)
                 cy.log(JSON.stringify(response.body))
+                cy.writeFile('cypress/downloads/user-cards-response.json', response)
                 expect(response.body.data[0].userId).to.eql('d5983e72-0a79-4076-9bf9-4eec2dac73f1')
             })
         })

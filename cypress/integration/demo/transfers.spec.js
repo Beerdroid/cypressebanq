@@ -1,5 +1,5 @@
-import TransfersPage from "../../page_objects/TransfersPage";
-import TransfersSteps from "../../steps/TransfersSteps";
+import TransfersPage from "../../support/page_objects/TransfersPage";
+import TransfersSteps from "../../support/steps/TransfersSteps";
 
 const transferTransferBetweenAccounts = 'transfer/transfer-between-accounts';
 

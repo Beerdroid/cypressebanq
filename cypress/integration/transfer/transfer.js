@@ -1,5 +1,5 @@
 import {Given, Then, When} from 'cypress-cucumber-preprocessor/steps'
-import TransfersPage from "../../page_objects/TransfersPage";
+import TransfersPage from "../../support/page_objects/TransfersPage";
 
 Given('transfer between accounts page is loaded', () => {
     cy.visit('transfer/transfer-between-accounts')

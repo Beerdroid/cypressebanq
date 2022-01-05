@@ -1,4 +1,4 @@
-import LoginSteps from "../../steps/LoginSteps";
+import LoginSteps from "../../support/steps/LoginSteps";
 
 /*
 Features:

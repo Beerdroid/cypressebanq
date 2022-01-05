@@ -1,5 +1,8 @@
 import TransfersPage from "../page_objects/TransfersPage";
-
+/*
+Features:
+1. Business steps layer
+*/
 export default class TransfersSteps {
     static fillAndSubmitForm(debit, credit, amount, text) {
         TransfersPage.debitFromDropDown().click()

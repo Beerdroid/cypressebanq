@@ -25,7 +25,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import "cypress-localstorage-commands"
-import LoginPage from "../page_objects/LoginPage";
+import LoginPage from "./page_objects/LoginPage";
 import 'cypress-file-upload';
 require('cy-verify-downloads').addCustomCommand();
 

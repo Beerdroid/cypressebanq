@@ -1,5 +1,5 @@
 export default class CommonElements {
-    static getLoadSpinner() {
+    static loadSpinner() {
         return cy.get('div.spinner .la-ball-clip-rotate')
     }
 

@@ -1,4 +1,4 @@
-import MyProfilePage from "../../page_objects/MyProfilePage";
+import MyProfilePage from "../../support/page_objects/MyProfilePage";
 const path = require('path')
 
 /*
