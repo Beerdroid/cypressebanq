@@ -3,8 +3,8 @@ const path = require('path')
 
 /*
 Features:
-1. verify download plugin
-2. file upload plugin
+1. verify download plugin (cy.verifyDownload0
+2. file upload plugin (cypress-file-upload)
 3. upload / download feature
 */
 describe('My profile tests', () => {

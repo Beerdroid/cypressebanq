@@ -13,6 +13,8 @@
     "downloadsFolder": "cypress/downloads",
     "experimentalStudio": true,
     "videoUploadOnPasses": false,
+    "screenshotOnRunFailure": true,
+    "videoCompression": 10,
     "testFiles": ["**/*.feature", "**/*.spec.js"],
     "reporter": "cypress-multi-reporters",
     "retries": {

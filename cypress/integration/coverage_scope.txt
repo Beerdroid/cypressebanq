@@ -16,9 +16,9 @@ cypress-cucumber-preprocessor
 
 #FEATURES
 env and config variable usage
-logs
-screenshot
-video compression config
+cy.log()
+screenshot / screenshotOnRunFailure config
+video compression / videoUploadOnPasses config
 cypress studio generated test
 hooks
 including and excluding tests
