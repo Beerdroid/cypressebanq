@@ -8,6 +8,6 @@ export default class SideNavPage {
     }
 
     static newsMenu() {
-        return cy.get('[routerlink="/user-news"]')
+        return cy.get('[routerlink="/user-news"]', {timeout: 12000})
     }
 }
