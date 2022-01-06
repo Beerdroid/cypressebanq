@@ -21,6 +21,7 @@ screenshot / screenshotOnRunFailure config
 video compression / videoUploadOnPasses config
 cypress studio generated test
 hooks
+wait for XHR loading
 including and excluding tests
 single test configuration
 test retry: global config and suite setup

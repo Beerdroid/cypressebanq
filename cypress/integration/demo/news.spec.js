@@ -34,10 +34,9 @@ describe('News tests',
             },
             () => {
                 const stubbedHeader = 'Hello world! This title is STUBBED!'
-
                 cy.intercept('**/article*', {fixture: 'news_stub.json'})
 
-                SideNavPage.newsMenu().realHover().click()
+                cy.visit('/user-news')
                 NewsPage.newsHeaderLink().should('contain.text', stubbedHeader)
                 NewsPage.newsHeaderLink().should(header => {
                     expect(header.text()).to.include(stubbedHeader)

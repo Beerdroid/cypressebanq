@@ -18,10 +18,12 @@
 // require('./commands'
 import './commands'
 import '@bahmutov/cy-api/support'
-require('cypress-terminal-report/src/installLogsCollector')();
+require('cypress-terminal-report/src/installLogsCollector')()
 require('cypress-grep')();
-import '@shelex/cypress-allure-plugin';
+import '@shelex/cypress-allure-plugin'
 require('cypress-xpath')
+import 'cypress-network-idle'
+import 'cypress-wait-until'
 
 
 

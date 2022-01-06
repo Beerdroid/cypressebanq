@@ -56,3 +56,8 @@ Cypress.Commands.add('login', (username, password) => {
     LoginPage.submitButton().click()
     cy.url().should('include', '/my-accounts');
 })
+
+Cypress.Commands.overwrite('visit', (originalFn, url, options) => {
+    originalFn(url, options)
+    cy.waitForNetworkIdle(3000)
+})
