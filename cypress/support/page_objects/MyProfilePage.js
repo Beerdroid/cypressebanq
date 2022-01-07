@@ -4,7 +4,7 @@ export default class MyProfilePage {
     }
 
     static fileDropZoneInput() {
-        return cy.get('#dropZone input').should('be.visible')
+        return cy.get('#dropZone input', {timeout: 12000})
     }
 
     static saveFileUploadButton() {

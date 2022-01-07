@@ -10,7 +10,7 @@
     "clean:reports": "rm -R -f cypress/reports && npx mkdirp cypress/reports && npx mkdirp cypress/reports/mochareports",
     "clean": "npm run clean:reports && npm run allure:clear",
     "cucumber:reports": "node cucumber_reporter.js",
-    "scripts:single": "cypress run --env allure=true",
+    "scripts:single": "cypress run --env allure=true --browser chrome",
     "scripts:parallel": "CYPRESS_API_URL=\"http://34.118.125.230:1234/\" npx cy2 run --parallel --record --key somekey --ci-build-id hello-cypress --env allure=true",
     "scripts:parallel:local": "CYPRESS_API_URL=\"http://localhost:1234/\" npx cy2 run --parallel --record --key somekey --ci-build-id hello-cypress --env allure=true",
     "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",

@@ -5,7 +5,7 @@ export default class TransfersPage {
     }
 
     static debitFromDropDown() {
-        return cy.get('[formcontrolname="accountFrom"] ng-select').should('be.visible')
+        return cy.get('[formcontrolname="accountFrom"] ng-select', {timeout: 12000})
     }
 
     static creditToDropDown() {
