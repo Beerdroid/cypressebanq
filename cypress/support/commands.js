@@ -57,7 +57,7 @@ Cypress.Commands.add('login', (username, password) => {
     cy.url().should('include', '/my-accounts');
 })
 
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => {
-//     originalFn(url, options)
-//     cy.waitForNetworkIdle(3000)
-// })
+Cypress.Commands.overwrite('visit', (originalFn, url, options) => {
+    originalFn(url, options)
+    cy.waitForNetworkIdle(3000)
+})
