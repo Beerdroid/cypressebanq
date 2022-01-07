@@ -14,7 +14,7 @@ describe('Login page', { tags: "@smoke" }, () => {
         cy.visit('/')
     })
 
-    it('login successfully in firefox', { browser: 'firefox' }, () => {
+    it('login successfully in firefox', { browser: 'chrome' }, () => {
         LoginSteps.login(username, password)
         cy.url().should('include', '/my-accounts');
     })
