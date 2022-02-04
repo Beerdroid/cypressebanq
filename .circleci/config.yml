@@ -6,7 +6,7 @@ orbs:
 workflows:
   build:
     jobs:
-      - cypress:
+      - cypress/run:
           post-install:
           - run: npm run clean
           - run: npm run test || true
