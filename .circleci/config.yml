@@ -7,3 +7,4 @@ workflows:
   build:
     jobs:
       - cypress/run
+      
