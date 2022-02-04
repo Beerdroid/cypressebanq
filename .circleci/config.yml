@@ -1,21 +1,13 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@5.0.0
   cypress: cypress-io/cypress@1.29.0
-jobs:
-  test:
-    executor: node/default
-    steps:
-      - checkout
-      - node/install-packages:
-          cache-path: ~/project/node_modules
-          override-ci-command: npm install
-      - run: sudo npm install -g npm@latest
-      - run: npm run clean
-      - run: npm run test || true
   
 workflows:
-  test_my_app:
-    jobs:
-      - test
+build:
+jobs:
+  test:
+    steps:
+      - checkout
+      - run: npm run clean
+      - run: npm run test || true
