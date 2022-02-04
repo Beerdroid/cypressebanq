@@ -6,7 +6,7 @@ orbs:
 workflows:
 build:
 jobs:
-  test:
+  - test:
     steps:
       - checkout
       - run: npm run clean
