@@ -1,0 +1,16 @@
+name: CI
+
+on:
+  pull_request:
+    types: [ labeled ]
+
+jobs:
+  trigger-circleci:
+    if: ${{ github.event.label.name == 'api' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: api tests
+        id: api_tests
+        uses: circleci/trigger_circleci_pipeline@v1.0
+        env:
+          CCI_TOKEN: ${{ secrets.CCI_TOKEN }}
