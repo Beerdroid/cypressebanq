@@ -23,6 +23,7 @@ require('cypress-grep')();
 import '@shelex/cypress-allure-plugin'
 require('cypress-xpath')
 import 'cypress-network-idle'
+import 'cypress-promise/register'
 import 'cypress-wait-until'
 
 

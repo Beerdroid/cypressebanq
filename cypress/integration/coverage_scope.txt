@@ -13,6 +13,7 @@ cypress-terminal-report
 cypress-allure
 cypress-localstorage-commands
 cypress-cucumber-preprocessor
+cypress-promise
 
 #FEATURES
 env and config variable usage

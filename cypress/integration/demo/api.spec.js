@@ -4,6 +4,7 @@ Features:
 2. aliases
 3. write file
 4. cy.log()
+5. cypress-promise
 */
 describe('API example', () => {
     const baseUrl = Cypress.env('apiBaseUrl')
@@ -21,20 +22,22 @@ describe('API example', () => {
         })
     })
 
-    it('gets user cards', () => {
-        cy.get('@accessToken').then((accessToken) => {
-            cy.api({
-                method: 'GET',
-                url: baseUrl + getCardsPath,
-                headers: {
-                    'Authorization': `Bearer ${accessToken}`,
-                }
-            }).then(response => {
-                expect(response.status).to.eq(200)
-                cy.log(JSON.stringify(response.body))
-                cy.writeFile('cypress/downloads/user-cards-response.json', response)
-                expect(response.body.data[0].userId).to.eql('d5983e72-0a79-4076-9bf9-4eec2dac73f1')
-            })
-        })
+    it('gets user cards', async () => {
+        const accessToken = await cy.get('@accessToken').promisify()
+        const request = {
+            method: 'GET',
+            url: baseUrl + getCardsPath,
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+            }
+        }
+
+        const response = await cy.api(request).promisify()
+
+        expect(response.status).to.eq(200)
+        cy.log(JSON.stringify(response.body))
+        cy.writeFile('cypress/downloads/user-cards-response.json', response)
+        expect(response.body.data[0].userId).to.eql('d5983e72-0a79-4076-9bf9-4eec2dac73f1')
     })
 })
+
