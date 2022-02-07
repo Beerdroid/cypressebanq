@@ -8,11 +8,13 @@ workflows:
   build:
     jobs:
       - cypress/run:
+          store_artifacts: true
           post-install:
           - run: npm run clean
           - run: npm run test || true
           post-steps:
           - run: npm run post
           - store_artifacts:
-              path: allure-report
+              path: allure-results
+
         
