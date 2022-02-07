@@ -20,5 +20,6 @@ workflows:
           post-install:
           - run: npm run clean
           - run: npm run test || true
-      - report
-
+      - report:
+          requires:
+            - cypress/run
