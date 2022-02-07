@@ -10,3 +10,11 @@ workflows:
           post-install:
           - run: npm run clean
           - run: npm run test || true
+      - generate allure report:
+          name: Generation of Allure Report
+          command: npm run post
+          when: always
+      - store_test_results:
+          path: /home/circleci/project/allure-results
+      - store_artifacts:
+          path: /home/circleci/project/allure-report
