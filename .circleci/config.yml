@@ -27,8 +27,9 @@ jobs:
       - allure/report
 
 workflows:
-when: << pipeline.parameters.GHA_Action >>
-  build:
+  conditional-workflow:
+    when: << pipeline.parameters.GHA_Action >>
+
     jobs:
       - cypress/run:
           store_artifacts: true
