@@ -35,7 +35,7 @@ workflows:
           store_artifacts: true
           post-install:
           - run: npm run clean
-          - run: npm run test || true
+          - run: npm run test:api || true
       - report:
           requires:
             - cypress/run
