@@ -5,7 +5,7 @@ Features:
 3. write file
 4. cy.log()
 */
-describe('API example', () => {
+describe('API example', { tags: '@api' }, () => {
     const baseUrl = Cypress.env('apiBaseUrl')
     const getCardsPath = '/accounts/private/v1/own-cards'
 
