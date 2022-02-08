@@ -14,7 +14,6 @@ jobs:
         id: api_tests      
         uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.0.2
         with:
-          GHA_Meta: "${{ github.event.pull_request.head.ref }}"
-          writable: true
+          GHA_Meta: ${{ github.event.pull_request.head.ref }}
         env:
           CCI_TOKEN: ${{ secrets.CIRCLE }}
