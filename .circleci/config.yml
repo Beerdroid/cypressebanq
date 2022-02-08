@@ -30,6 +30,7 @@ jobs:
     steps:
       - allure/report
       - run: npm run clean
+      - run: echo << pipeline.git.branch >>
 
 workflows:
   api_tests:
@@ -40,8 +41,6 @@ workflows:
     jobs:
       - allure-install
       - cypress/run:
-          pre-steps:
-            - run: echo << pipeline.git.branch >>
           store_artifacts: true
           post-install:
           - run: npm run test:api || true
