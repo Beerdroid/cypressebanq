@@ -6,6 +6,8 @@ on:
 
 jobs:
   trigger-circleci:
+    outputs:
+      branch: ${{ github.event.pull_request.head.ref }}
     if: ${{ github.event.label.name == 'api' }}
     runs-on: ubuntu-latest
     steps:
@@ -15,5 +17,4 @@ jobs:
         uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.0.2
         env:
           CCI_TOKEN: ${{ secrets.CIRCLE }}
-          CIRCLE_BRANCH: ${{ github.event.pull_request.head.ref }} 
-      
+          CIRCLE_BRANCH: ${{ github.event.pull_request.head.ref }}
