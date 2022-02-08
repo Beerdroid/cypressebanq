@@ -34,10 +34,8 @@ workflows:
           - equal: [ "api_tests", << pipeline.parameters.GHA_Action >>]    
     jobs:
       - cypress/run:
-          filters:
-              branches:
-                only:
-                  - << pipeline.git.branch >>
+          pre-steps:
+            - run: echo << pipeline.git.branch >>
           store_artifacts: true
           post-install:
           - run: npm run clean
