@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: api tests
-        id: api_tests
-        uses: circleci/trigger_circleci_pipeline@v1.0
+        id: api_tests      
+        uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.0.2
         env:
           CCI_TOKEN: ${{ secrets.CCI_TOKEN }}
