@@ -9,8 +9,10 @@ jobs:
     if: ${{ github.event.label.name == 'api' }}
     runs-on: ubuntu-latest
     steps:
+      - run: echo ${{ github.event.pull_request.head.ref }}
       - name: api tests
         id: api_tests      
         uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.0.2
         env:
           CCI_TOKEN: ${{ secrets.CIRCLE }}
+      
