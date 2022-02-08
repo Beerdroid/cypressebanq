@@ -13,4 +13,4 @@ jobs:
         id: api_tests      
         uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.0.2
         env:
-          CCI_TOKEN: ${{ secrets.CIRCLE }}
+          CCI_TOKEN: ${{ secrets.CCI_TOKEN }}
