@@ -6,7 +6,7 @@ Features:
 2. Data-provider approach
 3. Screenshots
 */
-describe('Messages scope', () => {
+describe.skip('Messages scope', () => {
     const username = Cypress.env('userName')
     const password = Cypress.env('password')
 
