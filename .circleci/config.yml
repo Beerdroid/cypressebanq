@@ -4,14 +4,6 @@ orbs:
   cypress: cypress-io/cypress@1.29.0
   allure: ayte/allure@0.1.3
 
-jobs:
-  report:
-    docker:
-      - image: cimg/openjdk:11.0
-    steps:
-      - allure/install
-      - allure/report
-
 workflows:
   tests:
     jobs:  
