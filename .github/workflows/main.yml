@@ -19,3 +19,19 @@ jobs:
     # Use the output from the `hello` step
     - name: Get the output response
       run: echo "The response was ${{ steps.curl-circle-ci.outputs.response }}"
+  smoke_tests:
+    if: github.event.label.name == 'smoke'
+    runs-on: ubuntu-latest
+    name: Run smoke tests
+    steps:
+    - uses: actions/checkout@v2
+    - name: run smoke tests on a branch
+      id: curl-circle-ci
+      uses: Open-Source-Contrib/circle-ci-trigger-action@latest
+      with:
+        circle_ci_token: ${{ secrets.CIRCLE }}
+        circle_ci_job: ${{ secrets.CIRCLE_SMOKE_TESTS }}
+        circle_ci_project_url: ${{ github.event.pull_request.head.ref }}
+    # Use the output from the `hello` step
+    - name: Get the output response
+      run: echo "The response was ${{ steps.curl-circle-ci.outputs.response }}"
