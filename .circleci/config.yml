@@ -20,6 +20,6 @@ workflows:
           store_artifacts: true
           command: npm run test:api || true
       - cypress/run:
-          name: smoke
+          name: smoke_tests
           store_artifacts: true
           command: npm run test:smoke || true
