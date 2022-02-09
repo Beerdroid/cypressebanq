@@ -15,7 +15,7 @@
     "videoUploadOnPasses": false,
     "screenshotOnRunFailure": true,
     "videoCompression": 10,
-    "testFiles": ["**/*.feature", "**/*.spec.js"],
+    "testFiles": ["**/*.spec.js"],
     "reporter": "cypress-multi-reporters",
     "retries": {
         "runMode": 2,

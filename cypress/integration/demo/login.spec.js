@@ -19,7 +19,7 @@ describe('Login page', { tags: "@smoke" }, () => {
         cy.url().should('include', '/my-accounts');
     })
 
-    it('login successfully in electron', { browser: 'electron', tags: "@electron" }, () => {
+    it('login successfully', () => {
         LoginSteps.login(username, password)
         cy.url().should('include', '/my-accounts');
     })
