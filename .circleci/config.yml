@@ -48,7 +48,7 @@ jobs:
           paths:
             - ~/.npm
             - ~/.cache
-      - run: $(npm bin)/cypress run --env grepTags=@api
+      - run: $(npm bin)/cypress run --env grepTags=@smoke
 
 workflows:
   run_tests:
