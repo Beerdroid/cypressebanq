@@ -14,7 +14,7 @@ jobs:
       uses: Open-Source-Contrib/circle-ci-trigger-action@latest
       with:
         circle_ci_token: ${{ secrets.CIRCLE }}
-        circle_ci_job: ${{ secrets.CIRCLE_API_TESTS }}
+        circle_ci_job: api_tests
         circle_ci_project_url: ${{ github.event.pull_request.head.ref }}
     # Use the output from the `hello` step
     - name: Get the output response
@@ -30,7 +30,7 @@ jobs:
       uses: Open-Source-Contrib/circle-ci-trigger-action@latest
       with:
         circle_ci_token: ${{ secrets.CIRCLE }}
-        circle_ci_job: ${{ secrets.CIRCLE_SMOKE_TESTS }}
+        circle_ci_job: smoke_tests
         circle_ci_project_url: ${{ github.event.pull_request.head.ref }}
     # Use the output from the `hello` step
     - name: Get the output response
