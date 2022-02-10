@@ -6,6 +6,7 @@ on:
 jobs:
   execute:
     runs-on: ubuntu-latest
+    environment: CCI
     steps:
       - name: Capture triggering branch name
         run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
