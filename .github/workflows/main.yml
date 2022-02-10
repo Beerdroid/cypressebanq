@@ -4,14 +4,14 @@ on:
     - labeled
     
 env:
-  PR_LABEL: github.event.pull_request.label.name
+  PR_LABEL: ${{ github.event.pull_request.label.name }}
 
 jobs:
   execute:
     runs-on: ubuntu-latest
     steps:
       - name: Label name
-        run: echo PR_LABEL
+        run: echo env.PR_LABEL
       - name: CircleCI Workflow API Trigger
         uses: promiseofcake/circleci-trigger-action@v.1.2.2
         with:
