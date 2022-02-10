@@ -4,7 +4,7 @@ on:
     - labeled
     
 env:
-  pr_label: ${{ github.event.label.name }}
+  pr_label: '${{ github.event.label.name }}'
 
 jobs:
   execute:
