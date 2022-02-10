@@ -6,7 +6,7 @@ parameters:
     default: "smoke"
 
 jobs:
-  tests:
+  run_tests:
     docker:
       - image: cypress/base:14.16.0
         environment:
@@ -34,5 +34,5 @@ jobs:
 workflows:
   run_tests:
     jobs:
-      - tests
+      - run_tests
  
