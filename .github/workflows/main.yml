@@ -17,4 +17,4 @@ jobs:
           user-token: ${{ secrets.CIRCLE }}
           project-slug: promiseofcake/circleci-trigger-action
           branch: ${{ env.BRANCH_NAME }}
-          payload: '{"tag": "api"}'
+          payload: '{"tag": ${{ github.event.pull_request.labels[0].name }}}'
