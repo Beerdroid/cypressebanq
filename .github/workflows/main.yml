@@ -6,14 +6,13 @@ on:
 jobs:
   execute:
     runs-on: ubuntu-latest
-    environment: CCI
     steps:
       - name: Capture triggering branch name
         run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
       - name: Trigger CircleCI build-beta workflow.
         uses: promiseofcake/circleci-trigger-action@v1.2.1
         with:
-          user-token: ${{ secrets.CIRCLE_CI }}
+          user-token: ${{ secrets.CIRCLE }}
           project-slug: promiseofcake/circleci-trigger-action
           branch: ${{ env.BRANCH_NAME }}
           payload: '{"pr_label": "api"}'
