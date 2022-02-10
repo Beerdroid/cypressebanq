@@ -10,10 +10,6 @@ jobs:
   execute:
     runs-on: ubuntu-latest
     steps:
-      - name: Capture triggering branch name
-        run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
-      - name: Selected label
-        run: echo pr_label
       - name: CircleCI Workflow API Trigger
         uses: promiseofcake/circleci-trigger-action@v.1.2.2
         with:
