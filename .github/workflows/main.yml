@@ -10,11 +10,11 @@ jobs:
       - name: Capture triggering branch name
         run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
       - name: Set lable variable
-        run: echo "${{ github.event.pull_request.labels[0].name }}"
+        run: echo "PR_LABEL=${github.event.pull_request.labels[0].name}" >> $GITHUB_ENV
       - name: CircleCI Workflow API Trigger
         uses: promiseofcake/circleci-trigger-action@v.1.2.2
         with:
           user-token: ${{ secrets.CIRCLE }}
           project-slug: promiseofcake/circleci-trigger-action
           branch: ${{ env.BRANCH_NAME }}
-          payload: '{"tag": ${{ github.event.pull_request.labels[0].name }}}'
+          payload: '{"tag": ${{ env.PR_LABEL }}}'
