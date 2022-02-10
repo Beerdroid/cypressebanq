@@ -1,7 +1,7 @@
 version: 2.1
 
 parameters:
-  tag:
+  pr_label:
     type: string
     default: "smoke"
 
@@ -29,7 +29,7 @@ jobs:
           paths:
             - ~/.npm
             - ~/.cache
-      - run: $(npm bin)/cypress run --env grepTags=@<< pipeline.parameters.tag >>
+      - run: $(npm bin)/cypress run --env grepTags=@<< pipeline.parameters.pr_label >>
 
 workflows:
   run_tests:
