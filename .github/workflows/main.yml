@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Label name
-        run: echo env.PR_LABEL
+        run: echo PR_LABEL
       - name: CircleCI Workflow API Trigger
         uses: promiseofcake/circleci-trigger-action@v.1.2.2
         with:
