@@ -9,10 +9,12 @@ jobs:
     steps:
       - name: Capture triggering branch name
         run: echo "BRANCH_NAME=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
+      - name: Set lable variable
+        run: echo "PR_LABEL=${{ github.event.pull_request.labels[0].name }}" >> $GITHUB_ENV
       - name: Trigger CircleCI build-beta workflow.
         uses: promiseofcake/circleci-trigger-action@v1.2.1
         with:
           project-slug: Beerdroid/cypressebanq
           user-token: ${{ secrets.CIRCLE }}
           branch: ${{ env.BRANCH_NAME }}
-          payload: '{"pr_label": "api"}'
+          payload: '{"pr_label": "${{ env.PR_LABEL }}"}'
