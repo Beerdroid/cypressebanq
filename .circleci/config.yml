@@ -3,7 +3,7 @@ version: 2.1
 parameters:
   pr_label:
     type: string
-    default: "smoke"
+    default: smoke
 
 jobs:
   run_tests:
