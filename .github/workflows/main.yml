@@ -12,7 +12,7 @@ jobs:
       - name: Trigger CircleCI build-beta workflow.
         uses: promiseofcake/circleci-trigger-action@v1.2.1
         with:
-          user-token: ${{ secrets.CIRCLE }}
+          user-token: ${{ secrets.CIRCLE_CI }}
           project-slug: promiseofcake/circleci-trigger-action
           branch: ${{ env.BRANCH_NAME }}
           payload: '{"pr_label": "api"}'
