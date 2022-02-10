@@ -4,7 +4,7 @@ on:
     - labeled
     
 env:
-  PR_LABEL: ${{ github.event.label.name }}
+  PR_LABEL: github.event.pull_request.label.name
 
 jobs:
   execute:
@@ -18,4 +18,4 @@ jobs:
           user-token: ${{ secrets.CIRCLE }}
           project-slug: promiseofcake/circleci-trigger-action
           branch: ${{ env.BRANCH_NAME }}
-          payload: '{"tag": ${{ env.PR_LABEL }}}'
+          payload: '{"tag": "api"}'
